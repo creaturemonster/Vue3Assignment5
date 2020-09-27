@@ -21,13 +21,18 @@
       <!-- 1) Add code to manage a list of tasks in a Vue app -->
       <!-- When clicking "Add Task" a new task with the entered text should be added -->
       <input type="text">
-      <button>Add Task</button>
+      <button @click="addTask">Add Task</button>
       <ul>
         <!-- 2) Output the list of tasks here -->
+        <li v-for="(goal, index) in goals" @click="removeGoal(index)">{{ goal }}-{{ index }}</li>
+        <li v-for="(value, key) in {name: 'Henry' , age:'26'}">
+           {{ key }}: {{ value }} - {{ index }}
+           <p>{{ goal }} - {{ index }}</p>
+           <input type="text" @click.stop>
       </ul>
       <!-- 3) When the below button is pressed, the list should be shown or hidden -->
       <!-- BONUS: Also update the button caption -->
-      <button>Hide / Show List</button>
+      <button @click="triggerList">Hide / Show List</button>
     </section>
   </body>
 </html>
