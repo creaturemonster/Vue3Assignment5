@@ -1,21 +1,24 @@
 const app = Vue.createApp({
   data() {
-  return {
-    enteredTaskValue:'',
-    showList:true,
-    tasks:[]
-  };
-},
- methods:{
-    addTask(){
-      this.tasks.push(this.enteredTaskValue);
+    return {
+      enteredValue: '',
+      tasks: [],
+      taskListIsVisible: true,
+    };
+  },
+  computed: {
+    buttonCaption() {
+      return this.taskListIsVisible ? 'Hide List' : 'Show List';
     },
-    triggerList(){
-      this.showList=!this.showList;
-    }, 
-    removeTask(index){
-      this.tasks.splice(index, 1);
-    }
-  }
+  },
+  methods: {
+    addTask() {
+      this.tasks.push(this.enteredValue);
+    },
+    toggleTaskList() {
+      this.taskListIsVisible = !this.taskListIsVisible;
+    },
+  },
 });
+
 app.mount('#assignment');
